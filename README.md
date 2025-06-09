@@ -34,11 +34,12 @@ Employee-Management-Combined/
 
 ### Run Frontend (Angular)
 
-cd Employee-Management
-npm install
-ng serve
+- cd Employee-Management
+- npm install
+- ng serve
 
 ### Run Backend (.NET Core API)
-cd Employee-Management-Backend
-dotnet restore
-dotnet run
+
+- cd Employee-Management-Backend
+- dotnet restore
+- dotnet run
