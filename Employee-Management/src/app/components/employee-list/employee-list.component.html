@@ -1,0 +1,73 @@
+@if(employeeList && employeeList.length > 0) {
+<div class="mat-elevation-z8">
+  <!-- <div class="flex justify-end p-2"> -->
+  <!-- Row 1: Search on Left, Add Employee on Right -->
+  <div class="flex flex-wrap justify-between items-center mb-1">
+    <!-- Search Input -->
+    <div class="w-full md:w-1/2 mb-2 md:mb-0">
+      <!-- <mat-form-field class="m-2">
+        <input
+          matInput
+          (keyup)="filterEmployees($event)"
+          placeholder="Search Employee"
+        />
+      </mat-form-field> -->
+    </div>
+
+    <!-- Add Employee Button -->
+    <div class="w-full md:w-1/2 flex justify-end">
+      <button
+        mat-raised-button
+        class="me-1"
+        color="primary"
+        routerLink="/create-employee"
+      >
+        + Add Employee
+      </button>
+    </div>
+  </div>
+
+  <!-- Row 2: Import on Left, Export on Right -->
+  <div class="flex flex-wrap justify-between items-center">
+    <!-- Import Section -->
+    <div class="w-full md:w-1/2 flex items-center space-x-2 mb-2 md:mb-0">
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        class="ms-1 border rounded p-1"
+      />
+      <button mat-raised-button color="primary" (click)="onUpload()">
+        Import
+      </button>
+    </div>
+
+    <!-- Export Button -->
+    <div class="w-full md:w-1/2 flex justify-end">
+      <button
+        mat-raised-button
+        color="primary"
+        class="me-1"
+        (click)="exportToExcel()"
+      >
+        Export
+      </button>
+    </div>
+  </div>
+
+  <ag-grid-angular
+    style="width: 100%; height: 300px"
+    class="ag-theme-alpine p-2"
+    [rowData]="employeeList"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [modules]="modules"
+    [rowGroupPanelShow]="'always'"
+    [pagination]="true"
+    [paginationPageSize]="paginationPageSize"
+    [paginationPageSizeSelector]="paginationPageSizeSelector"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onActionClicked($event)"
+  >
+  </ag-grid-angular>
+</div>
+}

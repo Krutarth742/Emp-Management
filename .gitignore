@@ -1,0 +1,19 @@
+# Node (Angular)
+**/node_modules/
+**/dist/
+**/.angular/cache/
+**/.env
+
+# Visual Studio / .NET
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+
+# System files
+Thumbs.db
+.DS_Store
+
+# VS Code
+.vscode/
