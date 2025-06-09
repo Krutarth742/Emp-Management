@@ -17,3 +17,5 @@ Thumbs.db
 
 # VS Code
 .vscode/
+/Employee-Management-Backend/appsettings.json
+/Employee-Management-Backend/appsettings.Development.json

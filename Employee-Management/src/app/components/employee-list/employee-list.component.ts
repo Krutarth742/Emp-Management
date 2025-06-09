@@ -73,8 +73,8 @@ export class EmployeeListComponent {
       headerName: 'Actions',
       cellRenderer: (params: any) => {
         return `
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">Edit</button>&nbsp;
+          <button class="btn-delete">Delete</button>&nbsp;
           <button class="btn-qr-code">QR Code</button>
         `;
       },
@@ -140,7 +140,7 @@ export class EmployeeListComponent {
         // Create a dialog or modal to display the QR code
         const modal = document.createElement('div');
         modal.style.position = 'fixed';
-        modal.style.left = '520px';
+        modal.style.left = '620px';
         modal.style.top = '220px';
         modal.style.width = '200px';
         modal.style.height = '100px';
@@ -270,4 +270,24 @@ export class EmployeeListComponent {
       console.warn('No file selected.');
     }
   }
+
+  paymentAmount: number = 0;
+
+  payNow() {
+    if (!this.paymentAmount || this.paymentAmount <= 0) {
+      this.notificationService.error('Enter a valid amount');
+      return;
+    }
+
+    this.httpService.payWithStripe(this.paymentAmount).subscribe({
+      next: (res) => {
+        this.notificationService.success('Payment initiated successfully');
+        window.location.href = res.checkoutUrl;
+      },
+      error: () => {
+        this.notificationService.error('Payment failed');
+      },
+    });
+  }
+
 }

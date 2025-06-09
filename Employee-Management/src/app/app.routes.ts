@@ -6,6 +6,8 @@ import { DepartmentListComponent } from './components/department-list/department
 import { DepartmentFormComponent } from './components/department-form/department-form.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { authGuard } from './guards/auth.guard';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { PaymentFailedComponent } from './components/payment-failed/payment-failed.component';
 
 export const routes: Routes = [
     {
@@ -52,5 +54,13 @@ export const routes: Routes = [
         path: "home-page",
         component: HomePageComponent,
         canActivate: [authGuard]
+    },
+    {
+        path: 'payment-success',
+        component: PaymentSuccessComponent
+    },
+    {
+        path: 'payment-failed',
+        component: PaymentFailedComponent
     },
 ];

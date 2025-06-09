@@ -18,7 +18,7 @@
     <div class="w-full md:w-1/2 flex justify-end">
       <button
         mat-raised-button
-        class="me-1"
+        class="me-1 mt-1"
         color="primary"
         routerLink="/create-employee"
       >
@@ -53,6 +53,30 @@
       </button>
     </div>
   </div>
+  <!-- Row 3: Payment Section -->
+  <div class="flex flex-wrap justify-end items-center mt-2 me-2">
+  <!-- Input + Pay Button Group -->
+    <div class="flex items-center space-x-2">
+      <!-- Amount Input -->
+      <input
+        type="number"
+        [(ngModel)]="paymentAmount"
+        placeholder="Enter Amount/Price"
+        min="0"
+        class="border rounded p-2 w-48"
+      />
+
+      <!-- Pay Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="payNow()"
+      >
+        Pay
+      </button>
+    </div>
+  </div>
+
 
   <ag-grid-angular
     style="width: 100%; height: 300px"

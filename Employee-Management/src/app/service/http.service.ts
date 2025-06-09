@@ -66,4 +66,9 @@ export class HttpService {
       responseType: 'blob'
     });
   }
+
+  payWithStripe(amount: number) {
+    return this.http.post<any>(`${this.apiUrl}/api/Payment/stripe`, { amount });
+  }
+
 }
